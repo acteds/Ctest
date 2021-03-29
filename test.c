@@ -1,9 +1,11 @@
 #include <stdio.h>
-
+#define MAX 10
+enum Sex{
+    MALE,FEMALE,SECRET
+};
 int main(int argc, char const *argv[])
 {
-    int num1=0,num2=0;
-    scanf("%d %d",&num1,&num2);
-    printf("%d %d",num1,num2);
+    enum Sex s=FEMALE;
+    printf("%d",s);
     return 0;
 }
