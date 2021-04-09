@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
+#include <windows.h>
 
 int half(int number, int a[], int n);
 int binsearch(int x, int v[], int n);
@@ -9,8 +10,53 @@ int factorial(int i);
 void stringExpand(char s[]);
 int maximumNumberOfConventions(int a, int b);
 int primeNumber(int a);
+void out99();
+void start1();
+void swap(int *, int *);
+int leapYear(int n);
+
 int main(int argc, char const *argv[])
 {
+    start1();
+    return 0;
+}
+
+
+    /**
+ * @brief  判断闰年
+ * @note
+ * @param  n: 年
+ * @retval
+ */
+    int
+    leapYear(int n)
+{
+    if (n%4==0&&n%100!=0)
+    {
+        return 1;
+    }else if(n%400==0){
+        return 1;
+    }
+    return 0;
+};
+
+/**
+ * @brief  交换两数内容
+ * @note
+ * @param  *a: 数1
+ * @param  *b: 数2
+ * @retval None
+ */
+void swap(int *a, int *b)
+{
+    int *temp = malloc(sizeof(int));
+    *temp = *a;
+    *a = *b;
+    *b = *temp;
+    free(temp);
+}
+
+void start1(){
     int v[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     printf("普通搜索:索引为:%d\n", binsearch(3, v, 10));
     printf("二分法搜索:索引为:%d\n", half(10, v, 10));
@@ -26,9 +72,44 @@ int main(int argc, char const *argv[])
             printf("%d ", i);
         }
     }
+    // todo 输出乘法表
+    // out99();
 
-    return 0;
+    // todo 交换
+    a = 10;
+    b = 20;
+    swap(&a, &b);
+    printf("\n%d %d\n", a, b);
+
+    // todo 闰年
+    for (i = 2021; i <= 2050; i++)
+    {
+        if (leapYear(i))
+        {
+            printf("%d ", i);
+        }
+    }
 }
+
+
+/**
+ * @brief  99乘法表
+ * @note
+ * @retval None
+ */
+void out99(){
+    printf("\n");
+    int i, j;
+    for (i = 1; i <=9; i++)
+    {
+        for (j = 1; j <= i; j++)
+        {
+            printf("%d*%d=%-2d ", j, i, i * j);
+        }
+        printf("\n");
+    }
+}
+
 /**
  * @brief  判断是否为素数
  * @note
@@ -37,8 +118,13 @@ int main(int argc, char const *argv[])
  */
 int primeNumber(int a)
 {
-    int i = 2;
-    for (; i <= sqrt(a); i++)
+    // todo 不为2且能被2整除
+    if (a % 2 == 0 && a != 2)
+    {
+        return 0;
+    }
+    int i = 3;
+    for (; i <= sqrt(a); i += 2)
     {
         if (a % i == 0)
         {
@@ -88,7 +174,7 @@ void stringExpand(char s[])
         s2[start] = s[start];
         s2[end] = s[end];
         printf("%s\n", s2);
-        Sleep(1000);
+        Sleep(1000UL);
     }
 }
 /**
