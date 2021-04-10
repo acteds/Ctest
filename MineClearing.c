@@ -16,6 +16,8 @@ void start();
 int main(int argc, char const *argv[])
 {
     system("title É¨À×");
+    system("mode con lines=30 cols=60");
+    system("color 07");
     srand((unsigned int)time(NULL));
     start();
     do
