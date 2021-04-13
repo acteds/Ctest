@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-
+tempCodeRunnerFile.c
 # Compiled Object files
 *.slo
 *.lo
