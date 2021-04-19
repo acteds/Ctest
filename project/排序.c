@@ -46,6 +46,13 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
+/**
+ * @brief  比较方法
+ * @note
+ * @param  *a: 指针
+ * @param  *b: 指针
+ * @retval
+ */
 int compare_student(const void *a, const void *b){
     struct student *arg1 = (struct student *)a;
     struct student *arg2 = (struct student *)b;
@@ -89,6 +96,14 @@ void user_bubble(void *a, int n,int size,int (*comp)(const void*,const void*))
         }
     }
 }
+/**
+ * @brief  按字节交换内容
+ * @note
+ * @param  *a: 字符指针
+ * @param  *b: 字符指针
+ * @param  size: 交换的字节数
+ * @retval None
+ */
 void Swap(char* a,char *b,int size){
     int i = 0;
     for (i = 0; i < size; i++)
