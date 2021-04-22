@@ -139,10 +139,10 @@ void user_strcat(char *q, const char *p)
 }
 /**
  * @brief  strcmp
- * @note   
- * @param  *q: 
- * @param  *p: 
- * @retval 
+ * @note
+ * @param  *q:
+ * @param  *p:
+ * @retval
  */
 int user_strcmp(const char *q, const char *p)
 {
@@ -198,9 +198,9 @@ const char *user_strstr(const char *p, const char *q)
 /**
  * @brief  memcpy
  * @note   不重叠内存间的复制.
- * @param  *d: 
- * @param  *src: 
- * @param  num: 
+ * @param  *d:
+ * @param  *src:
+ * @param  num:
  * @retval None
  */
 void user_memcpy(void *d, const void *src, size_t num)
@@ -217,8 +217,8 @@ void user_memcpy(void *d, const void *src, size_t num)
 /**
  * @brief  memmove
  * @note   重叠内存间的复制.
- * @param  *d: 
- * @param  *src: 
+ * @param  *d:
+ * @param  *src:
  * @param  num: 拷贝的内存大小,字节
  * @retval None
  */
