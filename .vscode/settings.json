@@ -16,7 +16,10 @@
         "float.h": "c",
         "error.h": "c",
         "cerrno": "c",
-        "errno.h": "c"
+        "errno.h": "c",
+        "stdlib.h": "c",
+        "cstdlib": "c",
+        "memory": "c"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }
