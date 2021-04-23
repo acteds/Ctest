@@ -95,7 +95,7 @@ int main(int argc, char const *argv[])
             //或写成int arr[];
         };
         //柔性数组成员时不计算大小.
-        printf("%d\n", sizeof(struct S));
+        printf("%I64d\n", sizeof(struct S));
         //柔性数组的创建应该使用malloc
         struct S *p = (struct S *)malloc(sizeof(struct S) + 5 * sizeof(int));
         p->n = 0xff;
@@ -109,18 +109,51 @@ int main(int argc, char const *argv[])
         if (q != NULL)
         {
             p = q;
+            for (i = 5; i < 10; i++)
+            {
+                p->arr[i] = 0xbb;
+            }
+            for (i = 0; i < 10; i++)
+            {
+                printf("%x ", p->arr[i]);
+            }
+            printf("\n");
         }
-        for (i = 5; i < 10; i++)
-        {
-            p->arr[i] = 0xbb;
-        }
-        for (i = 0; i < 10; i++)
-        {
-            printf("%x ", p->arr[i]);
-        }
-        printf("\n");
         free(p);
         p = NULL;
+    }
+    {
+        //柔性数组模拟
+        //申请两次动态空间,容易忘记2次free.
+        struct S
+        {
+            int n;
+            int *arr;
+        };
+        struct S *p = (struct S *)malloc(sizeof(struct S));
+        p->arr = malloc(5 * sizeof(int));
+        int i = 0;
+        for (i = 0; i < 5; i++)
+        {
+            p->arr[i] = i;
+        }
+        int *q = realloc(p->arr, 10 * sizeof(int));
+        if (q != NULL)
+        {
+            p->arr = q;
+            for (i = 5; i < 10; i++)
+            {
+                p->arr[i] = i;
+            }
+            for (i = 0; i < 10; i++)
+            {
+                printf("%d ", p->arr[i]);
+            }
+            printf("\n");
+            free(p->arr);
+            free(p);
+            p = NULL;
+        }
     }
     return 0;
 }
@@ -132,6 +165,7 @@ char *tips1(char *p)
 }
 char *tips2()
 {
+    //返回栈内地址
     char p[] = "hello world";
     return p;
 }
