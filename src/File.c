@@ -5,7 +5,7 @@ int main(int argc, char const *argv[])
 {
     {
         int a = 0xffff;
-        //å†™å…¥.
+        //Ğ´Èë.
         FILE *fp = fopen("out\\test.txt", "wb");
         if (fp==NULL)
         {
@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
         int b = 0;
         fclose(fp);
         fp = NULL;
-        //è¯»å–.
+        //¶ÁÈ¡.
         fp = fopen("out\\test.txt", "rb");
         fread(&b, 4, 1, fp);
         fclose(fp);
@@ -25,9 +25,9 @@ int main(int argc, char const *argv[])
         printf("%x\n", b);
     }
     {
-/*         //å±å¹•æµ
+/*         //ÆÁÄ»Á÷
         int a=fgetc(stdin);
-        //è¯»å–æ‰\n
+        //¶ÁÈ¡µô\n
         fgetc(stdin);
         fputc(a,stdout);
         char b[1024];
@@ -47,6 +47,10 @@ int main(int argc, char const *argv[])
         fseek(pf, 0, SEEK_SET);
         fscanf(pf, "%d %f %s\n", &s2.no, &s2.score, s2.arr);
         printf("%d %f %s\n", s2.no, s2.score, s2.arr);
+        printf("ÎÄ¼şÖ¸ÕëÆ«ÒÆÁ¿:%d\n", ftell(pf));
+        //ÖØÖÃÎÄ¼şÖ¸ÕëÎªÆğÊ¼Î»ÖÃ
+        rewind(pf);
+        printf("ÎÄ¼şÖ¸ÕëÆ«ÒÆÁ¿:%d\n", ftell(pf));
     }
     {
         //sprintf,sscanf
