@@ -13,15 +13,15 @@ int main(int argc, char const *argv[])
     {
         struct Test
         {
-            int Num;
-            char *pcName;
-            short sDate;
-            char cha[2];
-            short sBa[4];
-        }*p;
+            int Num;//4
+            char *pcName;//8
+            short sDate;//16 2
+            char cha[2];//18 2
+            short sBa[4];//20 8
+        }*p;//28
         p = (struct Test *)0x100000;
         printf("%d\n", sizeof(struct Test));
-        printf("%p\n", p + 0x1);//+20,指针后移
+        printf("%p\n", p + 0x1);               //+32,指针后移
         printf("%p\n", (unsigned long)p + 0x1);//+1,普通算数运算
         printf("%p\n", (unsigned int *)p + 0x1);//+4,指针后移
     }
